@@ -1,3 +1,10 @@
+let { addEvent } = require("listener");
+
 let { ItemGroupEvents } = net.fabricmc.fabric.api.itemgroup.v1;
 
-ItemGroupEvents.MODIFY_ENTRIES_ALL;
+addEvent(
+    "ItemGroupModifyEntriesAllEvent",
+    ItemGroupEvents.MODIFY_ENTRIES_ALL,
+    ItemGroupEvents.ModifyEntriesAll,
+    "modifyEntries",
+);

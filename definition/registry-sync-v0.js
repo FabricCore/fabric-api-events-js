@@ -1,3 +1,10 @@
+let { addEvent } = require("listener");
+
 let { DynamicRegistrySetupCallback } = net.fabricmc.fabric.api.event.registry;
 
-DynamicRegistrySetupCallback.EVENT;
+addEvent(
+    "DynamicRegistrySetupEvent",
+    DynamicRegistrySetupCallback.EVENT,
+    DynamicRegistrySetupCallback,
+    "onRegistrySetup",
+);

@@ -1,5 +1,36 @@
+let { addEvent } = require("listener");
+
 let { LootTableEvents } = net.fabricmc.fabric.api.loot.v3;
-LootTableEvents.REPLACE;
-LootTableEvents.MODIFY;
-LootTableEvents.ALL_LOADED;
-LootTableEvents.MODIFY_DROPS;
+
+addEvent(
+    "LootTableReplaceEvent",
+    LootTableEvents.REPLACE,
+    LootTableEvents.Replace,
+    "replaceLootTable",
+    (res, [_, original]) => res ?? original,
+    (res, args) => {
+        args[1] = res;
+        return args;
+    },
+);
+
+addEvent(
+    "LootTableModifyEvent",
+    LootTableEvents.MODIFY,
+    LootTableEvents.Modify,
+    "modifyLootTable",
+);
+
+addEvent(
+    "LootTableLoadedEvent",
+    LootTableEvents.ALL_LOADED,
+    LootTableEvents.Loaded,
+    "onLootTablesLoaded",
+);
+
+addEvent(
+    "LootTableModifyDropsEvent",
+    LootTableEvents.MODIFY_DROPS,
+    LootTableEvents.ModifyDrops,
+    "modifyLootTableDrops",
+);

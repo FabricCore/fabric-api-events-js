@@ -19,7 +19,7 @@ addEvent(
 let { FabricBrewingRecipeRegistryBuilder } = net.fabricmc.fabric.api.registry;
 
 addEvent(
-    "FabricBrewingRecipeRegistryBuildEvent",
+    "BrewingRecipeRegistryBuildEvent",
     FabricBrewingRecipeRegistryBuilder.BUILD,
     FabricBrewingRecipeRegistryBuilder.BuildCallback,
     "build",

@@ -1,6 +1,6 @@
 {
   "name": "fabric-api-events",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Event listeners for Fabric API events",
   "keywords": [],
   "license": "LGPL-3.0-or-later",

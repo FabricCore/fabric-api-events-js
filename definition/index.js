@@ -1,0 +1,14 @@
+module.require("./command-api-v2");
+module.require("./content-registries-v0");
+module.require("./entity-events-v1");
+module.require("./events-interaction-v0");
+module.require("./item-api-v1");
+module.require("./item-group-api-v1");
+module.require("./lifecycle-events-v1");
+module.require("./loot-api-v3");
+module.require("./message-api-v1");
+module.require("./networking-api-v1");
+module.require("./particles-v1");
+module.require("./registry-sync-v0");
+module.require("./rendering-v1");
+module.require("./screen-api-v1");

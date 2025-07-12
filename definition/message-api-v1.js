@@ -1,3 +1,5 @@
+let { addEvent } = require("listener");
+
 let { ServerMessageEvents } = net.fabricmc.fabric.api.message.v1;
 
 ServerMessageEvents.ALLOW_CHAT_MESSAGE;
@@ -9,21 +11,126 @@ ServerMessageEvents.COMMAND_MESSAGE;
 
 let { ClientSendMessageEvents } = net.fabricmc.fabric.api.client.message.v1;
 
-ClientSendMessageEvents.ALLOW_CHAT;
-ClientSendMessageEvents.ALLOW_COMMAND;
-ClientSendMessageEvents.MODIFY_CHAT;
-ClientSendMessageEvents.MODIFY_COMMAND;
-ClientSendMessageEvents.CHAT;
-ClientSendMessageEvents.COMMAND;
-ClientSendMessageEvents.CHAT_CANCELED;
-ClientSendMessageEvents.COMMAND_CANCELED;
+addEvent(
+    "ClientAllowSendChatMessageEvent",
+    ClientSendMessageEvents.ALLOW_CHAT,
+    ClientSendMessageEvents.AllowChat,
+    "allowSendChatMessage",
+    (res, _) => res ?? true,
+    (res, args) => (res ? [true, args] : [false, false]),
+);
+
+addEvent(
+    "ClientAllowSendCommandMessageEvent",
+    ClientSendMessageEvents.ALLOW_COMMAND,
+    ClientSendMessageEvents.AllowCommand,
+    "allowSendCommandMessage",
+    (res, _) => res ?? true,
+    (res, args) => (res ? [true, args] : [false, false]),
+);
+
+addEvent(
+    "ClientModifySendChatMessageEvent",
+    ClientSendMessageEvents.MODIFY_CHAT,
+    ClientSendMessageEvents.ModifyChat,
+    "modifySendChatMessage",
+    (res, [original]) => res ?? original,
+    (res) => [true, res],
+);
+
+addEvent(
+    "ClientModifySendCommandMessageEvent",
+    ClientSendMessageEvents.MODIFY_COMMAND,
+    ClientSendMessageEvents.ModifyCommand,
+    "modifySendCommandMessage",
+    (res, [original]) => res ?? original,
+    (res) => [true, res],
+);
+
+addEvent(
+    "ClientSendChatMessageEvent",
+    ClientSendMessageEvents.CHAT,
+    ClientSendMessageEvents.Chat,
+    "onSendChatMessage",
+);
+
+addEvent(
+    "ClientSendCommandMessageEvent",
+    ClientSendMessageEvents.COMMAND,
+    ClientSendMessageEvents.Command,
+    "onSendCommandMessage",
+);
+
+addEvent(
+    "ClientSendChatMessageCancelledEvent",
+    ClientSendMessageEvents.CHAT_CANCELED,
+    ClientSendMessageEvents.ChatCanceled,
+    "onSendChatMessageCanceled",
+);
+
+addEvent(
+    "ClientSendCommandMessageCancelledEvent",
+    ClientSendMessageEvents.COMMAND_CANCELED,
+    ClientSendMessageEvents.CommandCanceled,
+    "onSendCommandMessageCanceled",
+);
 
 let { ClientReceiveMessageEvents } = net.fabricmc.fabric.api.client.message.v1;
 
-ClientReceiveMessageEvents.ALLOW_CHAT;
-ClientReceiveMessageEvents.ALLOW_GAME;
-ClientReceiveMessageEvents.MODIFY_GAME;
-ClientReceiveMessageEvents.CHAT;
-ClientReceiveMessageEvents.GAME;
-ClientReceiveMessageEvents.CHAT_CANCELED;
-ClientReceiveMessageEvents.GAME_CANCELED;
+addEvent(
+    "ClientAllowReceiveChatMessageEvent",
+    ClientReceiveMessageEvents.ALLOW_CHAT,
+    ClientReceiveMessageEvents.AllowChat,
+    "allowReceiveChatMessage",
+    (res, _) => res ?? true,
+    (res, args) => (res ? [true, args] : [false, false]),
+);
+
+addEvent(
+    "ClientAllowReceiveGameMessageEvent",
+    ClientReceiveMessageEvents.ALLOW_GAME,
+    ClientReceiveMessageEvents.AllowGame,
+    "allowReceiveGameMessage",
+    (res, _) => res ?? true,
+    (res, args) => (res ? [true, args] : [false, false]),
+);
+
+addEvent(
+    "ClientModifyReceiveGameMessageEvent",
+    ClientReceiveMessageEvents.MODIFY_GAME,
+    ClientReceiveMessageEvents.ModifyGame,
+    "modifyReceivedGameMessage",
+    (res, [original]) => res ?? original,
+    (res, args) => {
+        args[0] = res;
+        return [true, args];
+    },
+);
+
+addEvent(
+    "ClientReceiveChatMessageEvent",
+    ClientReceiveMessageEvents.CHAT,
+    ClientReceiveMessageEvents.Chat,
+    "onReceiveChatMessage",
+);
+
+addEvent(
+    "ClientReceiveGameMessageEvent",
+    ClientReceiveMessageEvents.GAME,
+    ClientReceiveMessageEvents.Game,
+    "onReceiveGameMessage",
+);
+
+addEvent(
+    "ClientReceiveChatMessageCancelled",
+    ClientReceiveMessageEvents.CHAT_CANCELED,
+    ClientReceiveMessageEvents.ChatCanceled,
+    "onReceiveChatMessageCanceled",
+);
+
+addEvent(
+    "ClientReceiveGameMessageCancelled",
+    ClientReceiveMessageEvents.GAME_CANCELED,
+    ClientReceiveMessageEvents.GameCanceled,
+    "onReceiveGameMessageCanceled",
+);
