@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "yarn-extra": "0.1.0",
-    "listener": "0.1.0"
+    "listener": "0.1.0",
+    "rinode": "0.1.0"
   }
 }

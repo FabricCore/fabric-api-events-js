@@ -95,7 +95,7 @@ addEvent(
 addEvent(
     "EntityModifyWaveUpPositionEvent",
     EntitySleepEvents.MODIFY_WAKE_UP_POSITION,
-    EntitySleepEvents.ModifyWaveUpPosition,
+    EntitySleepEvents.ModifyWakeUpPosition,
     "modifyWakeUpPosition",
     (res, args) => (res == null ? args[3] : res),
     (res, args) => {

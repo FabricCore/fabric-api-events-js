@@ -49,7 +49,7 @@ addEvent(
 addEvent(
     "WorldRenderBeforeDebugRenderEvent",
     WorldRenderEvents.BEFORE_DEBUG_RENDER,
-    WorldRenderEvents.BeforeDebugRender,
+    WorldRenderEvents.DebugRender,
     "beforeDebugRender",
 );
 

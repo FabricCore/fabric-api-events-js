@@ -28,9 +28,12 @@ addEvent(
     "onLootTablesLoaded",
 );
 
+// Not in 1.21.5
+/*
 addEvent(
     "LootTableModifyDropsEvent",
     LootTableEvents.MODIFY_DROPS,
     LootTableEvents.ModifyDrops,
     "modifyLootTableDrops",
 );
+*/

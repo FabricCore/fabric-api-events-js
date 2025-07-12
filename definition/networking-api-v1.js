@@ -171,8 +171,8 @@ addEvent(
 addEvent(
     "C2SConfigChannelUnregisterEvent",
     C2SConfigurationChannelEvents.UNREGISTER,
-    C2SConfigurationChannelEvents.Unegister,
-    "onChannelUnegister",
+    C2SConfigurationChannelEvents.Unregister,
+    "onChannelUnregister",
 );
 
 let { ClientConfigurationConnectionEvents } =
