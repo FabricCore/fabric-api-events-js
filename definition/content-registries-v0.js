@@ -1,8 +1,26 @@
+let { addEvent } = require("listener");
+
 let { FuelRegistryEvents } = net.fabricmc.fabric.api.registry;
 
-FuelRegistryEvents.BUILD;
-FuelRegistryEvents.EXCLUSIONS;
+addEvent(
+    "FuelRegistryBuildEvent",
+    FuelRegistryEvents.BUILD,
+    FuelRegistryEvents.BuildCallback,
+    "build",
+);
+
+addEvent(
+    "FuelRegistryExclusionEvent",
+    FuelRegistryEvents.EXCLUSIONS,
+    FuelRegistryEvents.ExclusionsCallback,
+    "buildExclusions",
+);
 
 let { FabricBrewingRecipeRegistryBuilder } = net.fabricmc.fabric.api.registry;
 
-FabricBrewingRecipeRegistryBuilder.BUILD;
+addEvent(
+    "FabricBrewingRecipeRegistryBuildEvent",
+    FabricBrewingRecipeRegistryBuilder.BUILD,
+    FabricBrewingRecipeRegistryBuilder.BuildCallback,
+    "build",
+);

@@ -15,8 +15,8 @@ ClientSendMessageEvents.MODIFY_CHAT;
 ClientSendMessageEvents.MODIFY_COMMAND;
 ClientSendMessageEvents.CHAT;
 ClientSendMessageEvents.COMMAND;
-ClientSendMessageEvents.CHAT_CANCELLED;
-ClientSendMessageEvents.COMMAND_CANCELLED;
+ClientSendMessageEvents.CHAT_CANCELED;
+ClientSendMessageEvents.COMMAND_CANCELED;
 
 let { ClientReceiveMessageEvents } = net.fabricmc.fabric.api.client.message.v1;
 

@@ -1,3 +1,5 @@
+let { addEvent } = require("listener");
+
 let { ServerTickEvents } = net.fabricmc.fabric.api.event.lifecycle.v1;
 
 ServerTickEvents.START_SERVER_TICK;
@@ -36,30 +38,91 @@ CommonLifecycleEvents.TAGS_LOADED;
 
 let { ClientTickEvents } = net.fabricmc.fabric.api.client.event.lifecycle.v1;
 
-ClientTickEvents.START_CLIENT_TICK;
-ClientTickEvents.END_CLIENT_TICK;
-ClientTickEvents.START_WORLD_TICK;
-ClientTickEvents.END_WORLD_TICK;
+addEvent(
+    "StartClientTickEvent",
+    ClientTickEvents.START_CLIENT_TICK,
+    ClientTickEvents.StartTick,
+    "onStartTick",
+);
+
+addEvent(
+    "EndClientTickEvent",
+    ClientTickEvents.END_CLIENT_TICK,
+    ClientTickEvents.EndTick,
+    "onEndTick",
+);
+
+addEvent(
+    "StartClientWorldTickEvent",
+    ClientTickEvents.START_WORLD_TICK,
+    ClientTickEvents.StartWorldTick,
+    "onStartTick",
+);
+
+addEvent(
+    "EndClientWorldTickEvent",
+    ClientTickEvents.END_WORLD_TICK,
+    ClientTickEvents.EndWorldTick,
+    "onEndTick",
+);
 
 let { ClientChunkEvents } = net.fabricmc.fabric.api.client.event.lifecycle.v1;
 
-ClientChunkEvents.CHUNK_LOAD;
-ClientChunkEvents.CHUNK_UNLOAD;
+addEvent(
+    "ClientChunkLoadEvent",
+    ClientChunkEvents.CHUNK_LOAD,
+    ClientChunkEvents.Load,
+    "onChunkLoad",
+);
+
+addEvent(
+    "ClientChunkUnloadEvent",
+    ClientChunkEvents.CHUNK_UNLOAD,
+    ClientChunkEvents.Unload,
+    "onChunkUnload",
+);
 
 let { ClientWorldEvents } = net.fabricmc.fabric.api.client.event.lifecycle.v1;
 
-ClientWorldEvents.AFTER_CLIENT_WORLD_CHANGE;
+addEvent(
+    "ClientAfterWorldChangeEvent",
+    ClientWorldEvents.AFTER_CLIENT_WORLD_CHANGE,
+    ClientWorldEvents.AfterClientWorldChange,
+    "afterWorldChange",
+);
 
 let { ClientEntityEvents } = net.fabricmc.fabric.api.client.event.lifecycle.v1;
 
-ClientEntityEvents.ENTITY_LOAD;
-ClientEntityEvents.ENTITY_UNLOAD;
+addEvent(
+    "ClientEntityLoadEvent",
+    ClientEntityEvents.ENTITY_LOAD,
+    ClientEntityEvents.Load,
+    "onLoad",
+);
+
+addEvent(
+    "ClientEntityUnloadEvent",
+    ClientEntityEvents.ENTITY_UNLOAD,
+    ClientEntityEvents.Unload,
+    "onUnload",
+);
 
 let { ClientBlockEntityEvents } =
     net.fabricmc.fabric.api.client.event.lifecycle.v1;
 
-ClientBlockEntityEvents.BLOCK_ENTITY_LOAD;
-ClientBlockEntityEvents.BLOCK_ENTITY_UNLOAD;
+addEvent(
+    "ClientBlockEntityLoadEvent",
+    ClientBlockEntityEvents.BLOCK_ENTITY_LOAD,
+    ClientBlockEntityEvents.Load,
+    "onLoad",
+);
+
+addEvent(
+    "ClientBlockEntityUnloadEvent",
+    ClientBlockEntityEvents.BLOCK_ENTITY_UNLOAD,
+    ClientBlockEntityEvents.Unload,
+    "onUnload",
+);
 
 let { ServerWorldEvents } = net.fabricmc.fabric.api.event.lifecycle.v1;
 
@@ -69,5 +132,16 @@ ServerWorldEvents.UNLOAD;
 let { ClientLifecycleEvents } =
     net.fabricmc.fabric.api.client.event.lifecycle.v1;
 
-ClientLifecycleEvents.CLIENT_STARTED;
-ClientLifecycleEvents.CLENT_STOPPING;
+addEvent(
+    "ClientStartedEvent",
+    ClientLifecycleEvents.CLIENT_STARTED,
+    ClientLifecycleEvents.ClientStarted,
+    "onClientStarted",
+);
+
+addEvent(
+    "ClientStoppingEvent",
+    ClientLifecycleEvents.CLIENT_STOPPING,
+    ClientLifecycleEvents.ClientStopping,
+    "onClientStopping",
+);
