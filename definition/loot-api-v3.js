@@ -28,12 +28,11 @@ addEvent(
     "onLootTablesLoaded",
 );
 
-// Not in 1.21.5
-/*
-addEvent(
-    "LootTableModifyDropsEvent",
-    LootTableEvents.MODIFY_DROPS,
-    LootTableEvents.ModifyDrops,
-    "modifyLootTableDrops",
-);
-*/
+if (Object.keys(LootTableEvents).includes("MODIFY_DROPS")) {
+    addEvent(
+        "LootTableModifyDropsEvent",
+        LootTableEvents.MODIFY_DROPS,
+        LootTableEvents.ModifyDrops,
+        "modifyLootTableDrops",
+    );
+}
