@@ -33,115 +33,144 @@ ServerLifecycleEvents.BEFORE_SAVE;
 ServerLifecycleEvents.AFTER_SAVE;
 
 let { CommonLifecycleEvents } = net.fabricmc.fabric.api.event.lifecycle.v1;
+let CommonLifecycleEventsFields = new Set(Object.keys(CommonLifecycleEvents));
 
-CommonLifecycleEvents.TAGS_LOADED;
+if (CommonLifecycleEventsFields.has("TAGS_LOADED"))
+    addEvent(
+        "TagsLoadedEvent",
+        CommonLifecycleEvents.TAGS_LOADED,
+        CommonLifecycleEvents.TagsLoaded,
+        "onTagsLoaded",
+    );
 
 let { ClientTickEvents } = net.fabricmc.fabric.api.client.event.lifecycle.v1;
+let ClientTickEventsFields = new Set(Object.keys(ClientTickEvents));
 
-addEvent(
-    "StartClientTickEvent",
-    ClientTickEvents.START_CLIENT_TICK,
-    ClientTickEvents.StartTick,
-    "onStartTick",
-);
+if (ClientTickEventsFields.has("START_CLIENT_TICK"))
+    addEvent(
+        "StartClientTickEvent",
+        ClientTickEvents.START_CLIENT_TICK,
+        ClientTickEvents.StartTick,
+        "onStartTick",
+    );
 
-addEvent(
-    "EndClientTickEvent",
-    ClientTickEvents.END_CLIENT_TICK,
-    ClientTickEvents.EndTick,
-    "onEndTick",
-);
+if (ClientTickEventsFields.has("END_CLIENT_TICK"))
+    addEvent(
+        "EndClientTickEvent",
+        ClientTickEvents.END_CLIENT_TICK,
+        ClientTickEvents.EndTick,
+        "onEndTick",
+    );
 
-addEvent(
-    "StartClientWorldTickEvent",
-    ClientTickEvents.START_WORLD_TICK,
-    ClientTickEvents.StartWorldTick,
-    "onStartTick",
-);
+if (ClientTickEventsFields.has("START_WORLD_TICK"))
+    addEvent(
+        "StartClientWorldTickEvent",
+        ClientTickEvents.START_WORLD_TICK,
+        ClientTickEvents.StartWorldTick,
+        "onStartTick",
+    );
 
-addEvent(
-    "EndClientWorldTickEvent",
-    ClientTickEvents.END_WORLD_TICK,
-    ClientTickEvents.EndWorldTick,
-    "onEndTick",
-);
+if (ClientTickEventsFields.has("END_WORLD_TICK"))
+    addEvent(
+        "EndClientWorldTickEvent",
+        ClientTickEvents.END_WORLD_TICK,
+        ClientTickEvents.EndWorldTick,
+        "onEndTick",
+    );
 
 let { ClientChunkEvents } = net.fabricmc.fabric.api.client.event.lifecycle.v1;
+let ClientChunkEventsFields = new Set(Object.keys(ClientChunkEvents));
 
-addEvent(
-    "ClientChunkLoadEvent",
-    ClientChunkEvents.CHUNK_LOAD,
-    ClientChunkEvents.Load,
-    "onChunkLoad",
-);
+if (ClientChunkEventsFields.has("CHUNK_LOAD"))
+    addEvent(
+        "ClientChunkLoadEvent",
+        ClientChunkEvents.CHUNK_LOAD,
+        ClientChunkEvents.Load,
+        "onChunkLoad",
+    );
 
-addEvent(
-    "ClientChunkUnloadEvent",
-    ClientChunkEvents.CHUNK_UNLOAD,
-    ClientChunkEvents.Unload,
-    "onChunkUnload",
-);
+if (ClientChunkEventsFields.has("CHUNK_UNLOAD"))
+    addEvent(
+        "ClientChunkUnloadEvent",
+        ClientChunkEvents.CHUNK_UNLOAD,
+        ClientChunkEvents.Unload,
+        "onChunkUnload",
+    );
 
 let { ClientWorldEvents } = net.fabricmc.fabric.api.client.event.lifecycle.v1;
+let ClientWorldEventsFields = new Set(Object.keys(ClientWorldEvents));
 
-addEvent(
-    "ClientAfterWorldChangeEvent",
-    ClientWorldEvents.AFTER_CLIENT_WORLD_CHANGE,
-    ClientWorldEvents.AfterClientWorldChange,
-    "afterWorldChange",
-);
+if (ClientWorldEventsFields.has("AFTER_CLIENT_WORLD_CHANGE"))
+    addEvent(
+        "ClientAfterWorldChangeEvent",
+        ClientWorldEvents.AFTER_CLIENT_WORLD_CHANGE,
+        ClientWorldEvents.AfterClientWorldChange,
+        "afterWorldChange",
+    );
 
 let { ClientEntityEvents } = net.fabricmc.fabric.api.client.event.lifecycle.v1;
+let ClientEntityEventsFields = new Set(Object.keys(ClientEntityEvents));
 
-addEvent(
-    "ClientEntityLoadEvent",
-    ClientEntityEvents.ENTITY_LOAD,
-    ClientEntityEvents.Load,
-    "onLoad",
-);
+if (ClientEntityEventsFields.has("ENTITY_LOAD"))
+    addEvent(
+        "ClientEntityLoadEvent",
+        ClientEntityEvents.ENTITY_LOAD,
+        ClientEntityEvents.Load,
+        "onLoad",
+    );
 
-addEvent(
-    "ClientEntityUnloadEvent",
-    ClientEntityEvents.ENTITY_UNLOAD,
-    ClientEntityEvents.Unload,
-    "onUnload",
-);
+if (ClientEntityEventsFields.has("ENTITY_UNLOAD"))
+    addEvent(
+        "ClientEntityUnloadEvent",
+        ClientEntityEvents.ENTITY_UNLOAD,
+        ClientEntityEvents.Unload,
+        "onUnload",
+    );
 
 let { ClientBlockEntityEvents } =
     net.fabricmc.fabric.api.client.event.lifecycle.v1;
-
-addEvent(
-    "ClientBlockEntityLoadEvent",
-    ClientBlockEntityEvents.BLOCK_ENTITY_LOAD,
-    ClientBlockEntityEvents.Load,
-    "onLoad",
+let ClientBlockEntityEventsFields = new Set(
+    Object.keys(ClientBlockEntityEvents),
 );
 
-addEvent(
-    "ClientBlockEntityUnloadEvent",
-    ClientBlockEntityEvents.BLOCK_ENTITY_UNLOAD,
-    ClientBlockEntityEvents.Unload,
-    "onUnload",
-);
+if (ClientBlockEntityEventsFields.has("BLOCK_ENTITY_LOAD"))
+    addEvent(
+        "ClientBlockEntityLoadEvent",
+        ClientBlockEntityEvents.BLOCK_ENTITY_LOAD,
+        ClientBlockEntityEvents.Load,
+        "onLoad",
+    );
+
+if (ClientBlockEntityEventsFields.has("BLOCK_ENTITY_UNLOAD"))
+    addEvent(
+        "ClientBlockEntityUnloadEvent",
+        ClientBlockEntityEvents.BLOCK_ENTITY_UNLOAD,
+        ClientBlockEntityEvents.Unload,
+        "onUnload",
+    );
 
 let { ServerWorldEvents } = net.fabricmc.fabric.api.event.lifecycle.v1;
+let ServerWorldEventsFields = new Set(Object.keys(ServerWorldEvents));
 
 ServerWorldEvents.LOAD;
 ServerWorldEvents.UNLOAD;
 
 let { ClientLifecycleEvents } =
     net.fabricmc.fabric.api.client.event.lifecycle.v1;
+let ClientLifecycleEventsFields = new Set(Object.keys(ClientLifecycleEvents));
 
-addEvent(
-    "ClientStartedEvent",
-    ClientLifecycleEvents.CLIENT_STARTED,
-    ClientLifecycleEvents.ClientStarted,
-    "onClientStarted",
-);
+if (ClientLifecycleEventsFields.has("CLIENT_STARTED"))
+    addEvent(
+        "ClientStartedEvent",
+        ClientLifecycleEvents.CLIENT_STARTED,
+        ClientLifecycleEvents.ClientStarted,
+        "onClientStarted",
+    );
 
-addEvent(
-    "ClientStoppingEvent",
-    ClientLifecycleEvents.CLIENT_STOPPING,
-    ClientLifecycleEvents.ClientStopping,
-    "onClientStopping",
-);
+if (ClientLifecycleEventsFields.has("CLIENT_STOPPING"))
+    addEvent(
+        "ClientStoppingEvent",
+        ClientLifecycleEvents.CLIENT_STOPPING,
+        ClientLifecycleEvents.ClientStopping,
+        "onClientStopping",
+    );
