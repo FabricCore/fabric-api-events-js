@@ -2,26 +2,33 @@ let { addEvent } = require("listener");
 
 let { ServerTickEvents } = net.fabricmc.fabric.api.event.lifecycle.v1;
 
+/*
 ServerTickEvents.START_SERVER_TICK;
 ServerTickEvents.END_SERVER_TICK;
 ServerTickEvents.START_WORLD_TICK;
 ServerTickEvents.END_WORLD_TICK;
+*/
 
 let { ServerChunkEvents } = net.fabricmc.fabric.api.event.lifecycle.v1;
 
+/*
 ServerChunkEvents.CHUNK_LOAD;
 ServerChunkEvents.CHUNK_GENERATE;
 ServerChunkEvents.CHUNK_UNLOAD;
 ServerChunkEvents.CHUNK_LEVEL_TYPE_CHANGE;
+*/
 
 let { ServerEntityEvents } = net.fabricmc.fabric.api.event.lifecycle.v1;
 
+/*
 ServerEntityEvents.ENTITY_LOAD;
 ServerEntityEvents.ENTITY_UNLOAD;
 ServerEntityEvents.EQUIPMENT_CHANGE;
+*/
 
 let { ServerLifecycleEvents } = net.fabricmc.fabric.api.event.lifecycle.v1;
 
+/*
 ServerLifecycleEvents.SERVER_STARTING;
 ServerLifecycleEvents.SERVER_STARTED;
 ServerLifecycleEvents.SERVER_STOPPING;
@@ -31,6 +38,7 @@ ServerLifecycleEvents.START_DATA_PACK_RELOAD;
 ServerLifecycleEvents.END_DATA_PACK_RELOAD;
 ServerLifecycleEvents.BEFORE_SAVE;
 ServerLifecycleEvents.AFTER_SAVE;
+*/
 
 let { CommonLifecycleEvents } = net.fabricmc.fabric.api.event.lifecycle.v1;
 let CommonLifecycleEventsFields = new Set(Object.keys(CommonLifecycleEvents));
@@ -152,8 +160,10 @@ if (ClientBlockEntityEventsFields.has("BLOCK_ENTITY_UNLOAD"))
 let { ServerWorldEvents } = net.fabricmc.fabric.api.event.lifecycle.v1;
 let ServerWorldEventsFields = new Set(Object.keys(ServerWorldEvents));
 
+/*
 ServerWorldEvents.LOAD;
 ServerWorldEvents.UNLOAD;
+*/
 
 let { ClientLifecycleEvents } =
     net.fabricmc.fabric.api.client.event.lifecycle.v1;

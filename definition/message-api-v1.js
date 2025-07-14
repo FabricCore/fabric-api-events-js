@@ -3,12 +3,14 @@ let { addEvent } = require("listener");
 let { ServerMessageEvents } = net.fabricmc.fabric.api.message.v1;
 let ServerMessageEventsFields = new Set(Object.keys(ServerMessageEvents));
 
+/*
 ServerMessageEvents.ALLOW_CHAT_MESSAGE;
 ServerMessageEvents.ALLOW_GAME_MESSAGE;
 ServerMessageEvents.ALLOW_COMMAND_MESSAGE;
 ServerMessageEvents.CHAT_MESSAGE;
 ServerMessageEvents.GAME_MESSAGE;
 ServerMessageEvents.COMMAND_MESSAGE;
+*/
 
 let { ClientSendMessageEvents } = net.fabricmc.fabric.api.client.message.v1;
 let ClientSendMessageEventsFields = new Set(

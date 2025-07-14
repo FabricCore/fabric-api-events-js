@@ -142,29 +142,35 @@ if (EntityElytraEventsField.has("CUSTOM"))
 let { ServerPlayerEvents } = net.fabricmc.fabric.api.entity.event.v1;
 let ServerPlayerEventsField = new Set(Object.keys(ServerPlayerEvents));
 
+/*
 ServerPlayerEvents.COPY_FROM;
 ServerPlayerEvents.AFTER_RESPAWN;
 ServerPlayerEvents.JOIN;
 ServerPlayerEvents.LEAVE;
 ServerPlayerEvents.ALLOW_DEATH;
+*/
 
 let { ServerLivingEntityEvents } = net.fabricmc.fabric.api.entity.event.v1;
 let ServerLivingEntityEventsFields = new Set(
     Object.keys(ServerLivingEntityEvents),
 );
 
+/*
 ServerLivingEntityEvents.ALLOW_DAMAGE;
 ServerLivingEntityEvents.AFTER_DAMAGE;
 ServerLivingEntityEvents.ALLOW_DEATH;
 ServerLivingEntityEvents.AFTER_DEATH;
 ServerLivingEntityEvents.MOB_CONVERSION;
+*/
 
 let { ServerEntityCombatEvents } = net.fabricmc.fabric.api.entity.event.v1;
 let ServerEntityCombatEventsFields = new Set(
     Object.keys(ServerEntityCombatEvents),
 );
 
+/*
 ServerEntityCombatEvents.AFTER_KILLED_OTHER_ENTITY;
+*/
 
 let { ServerEntityWorldChangeEvents } = net.fabricmc.fabric.api.entity.event.v1;
 
@@ -172,5 +178,7 @@ let ServerEntityWorldChangeEventsFields = new Set(
     Object.keys(ServerEntityWorldChangeEvents),
 );
 
+/*
 ServerEntityWorldChangeEvents.AFTER_ENTITY_CHANGE_WORLD;
 ServerEntityWorldChangeEvents.AFTER_PLAYER_CHANGE_WORLD;
+*/
