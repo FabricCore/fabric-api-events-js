@@ -94,7 +94,7 @@ let ClientReceiveMessageEventsFields = new Set(
     Object.keys(ClientReceiveMessageEvents),
 );
 
-if (ClientSendMessageEventsFields.has("ALLOW_CHAT"))
+if (ClientReceiveMessageEventsFields.has("ALLOW_CHAT"))
     addEvent(
         "ClientAllowReceiveChatMessageEvent",
         ClientReceiveMessageEvents.ALLOW_CHAT,
@@ -104,7 +104,7 @@ if (ClientSendMessageEventsFields.has("ALLOW_CHAT"))
         (res, args) => (res ? [true, args] : [false, false]),
     );
 
-if (ClientSendMessageEventsFields.has("ALLOW_GAME"))
+if (ClientReceiveMessageEventsFields.has("ALLOW_GAME"))
     addEvent(
         "ClientAllowReceiveGameMessageEvent",
         ClientReceiveMessageEvents.ALLOW_GAME,
@@ -114,7 +114,7 @@ if (ClientSendMessageEventsFields.has("ALLOW_GAME"))
         (res, args) => (res ? [true, args] : [false, false]),
     );
 
-if (ClientSendMessageEventsFields.has("MODIFY_GAME"))
+if (ClientReceiveMessageEventsFields.has("MODIFY_GAME"))
     addEvent(
         "ClientModifyReceiveGameMessageEvent",
         ClientReceiveMessageEvents.MODIFY_GAME,
